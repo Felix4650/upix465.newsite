@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>upix 465</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="/fullmotion/assets/css/main.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<style >
+  *{
+    margin: 0;
+    padding: 0;
+     
+  }
+  .is-loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+    background-size: cover;
+    background-position: center;
+    padding: 5px 5%;
+    gap: 10px;
+  }
+  .container{
+    width:  100%;
+    height: auto;
+
+  }
+  .container .content {
+    display: flex;
+    width: 100%;
+    position: relative;
+    
+    
+  }
+  .container .content .nav{
+    position: absolute;
+    right: 0;
+    display: flex;
+    width: auto;
+    padding: 6px;
+    
+    
+  }
+  .container .content .nav h4{
+    margin-left: 50px;
+
+  }
+  .container .content .nav h4:hover{
+    color: #E2336B;
+    
+  }
+  .contents{
+    margin-top: 4px;
+    width: 100%;
+  }
+  .box{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    height: 450px;
+    background-image: url('img/5.jpg');
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.8);
+  }
+  .box button{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #201f1f;
+    
+    
+  }
+  .box button:hover{
+    background: linear-gradient(#E2336B, #771cdf);
+    color: #fff;
+  }
+  .nav h4 a{
+    color: white;
+    text-decoration: none;
+  }
+  .footer{
+    display: flex;
+    border-top: 2px solid #fff;
+  }
+  .footer div{
+    width: 50%;
+    padding: 5px;
+  
+  }
+  .footer h3{
+    width: 150px;
+    
+  }
+  .footer div h3:hover{
+    color: #E2336B;
+    
+
+  }
+  .footer div h4:hover{
+    color: #771cdf;
+  }
+  .center{
+    height: 280px;
+    padding: 5px;
+    color: #fff;
+  }
+  .center h2{
+    text-align: center;
+    word-spacing: 5px;
+    
+
+  }
+  .cro{
+    padding: 20px;
+  }
+  .cro .dr{
+    color: #E2336B;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .center h3{
+    text-align: center;
+    word-spacing: 5px;
+  }
+  
+  .send-batn{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+
+  }
+  .send-batn:active{
+    transform: scale(0.8s);
+  }
+  .send-batn a{
+    font-size: 20px;
+
+  }
+  .chat-baatn{
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    position: fixed;
+    bottom: 20px;
+
+  }
+  .chat-baatn img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    color: #fff;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    transition: 0.4s ease-in-out;
+  }
+  .chat-baatn:hover img{
+    transition: rotate(30deg);
+  }
+  .name{
+    font-style: italic;
+  }
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #202424; /* White background with slight transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Make sure it's on top */
+    transition: opacity 1s ease-out; /* Transition for the fade-out effect */
+  }
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    background-image: url('img/loading.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Hide the content initially */
+  .is-loading {
+    display: none;
+  }
+  .fade-out {
+    opacity: 0; /* Make the overlay transparent */
+  }
+</style>
+
+<body>
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+  <div class="is-loading">
+  <div class="container" >
+    <div class="content">
+      <h3 style=" padding-right: 15px;font-family: cursive;font-size: 25px;">upix <h3 style="color: #E2336B;"> _</h3></h3>
+      <div class="nav">
+        <h4><a href="/admin/index.html" style="border: none;">Featured</a></h4>
+        <h4><a href="/chat/about.html" style="border: none;">about</a></h4>
+       <h4><a id="countdown" style="border: none;">register</a></h4>
+      </div>
+      
+    </div>
+    <div class="contents">
+      <div class="box">
+      
+       <a href="signup.html"><button type="submit" id="joinButton">Join us</button></a>
+        A place that you can find out the best photos in the world, we make you get what you need that's perfect for you, try it for free..
+      </div>
+    </div>
+    <div class="center">
+     <h2> Welcome to upix 465! </h2>
+    <h3>Discover, share, and connect with a global community of photographers. Whether you're a seasoned professional or an aspiring enthusiast, upix 456 is the perfect platform to showcase your work, learn from others, and find inspiration. Join us to explore stunning galleries, participate in photography challenges, and engage in meaningful discussions. Let's capture the world together, one photo at a time!
+  </h3>
+    <footer class="footer">
+      <div>
+        <h3>Get in touch:</h3>
+           <h4><a href="https://gmail.com/felixmogendi1@gmail.com/" class="icon fa-envelope"></a> Email</h4>
+           <h4><a href="/chat/index.html" class="icon fa-comment"></a> live chat</h4>
+        
+      </div>
+      <div>
+        <h3>Find us on:</h3>
+           <h4><a href="https://twitter.com/@StudioSunn66801" class="icon fa-twitter"> X-(formerly twitter)</a></h4>
+           <h4><a href="https://www.facebook.com/profile.php?id=100081776331687" target="_blank" class="icon fa-facebook"> facebook</a></h4>
+           <h4><a href="https://www.instagram.com/felitopia_121/" target="_blank" class="icon fa-instagram"> Instagram</a></h4>
+         
+      </div>
+    </footer>
+   
+    <center class="cro">
+    made with <a class="dr" href="drimer.org">Drimr</a>
+    </center>
+  </div>
+  
+  </div>
+
+  </div>
+</body>
+<script>
+  window.addEventListener('load', () => {
+      const loadingOverlay = document.querySelector('.loading-overlay');
+      const isloading= document.querySelector('.is-loading');
+
+      // Add the fade-out class to start the transition
+      loadingOverlay.classList.add('fade-out');
+
+      // Wait for the transition to end (1s as defined in the CSS) before hiding the overlay and showing content
+      setTimeout(() => {
+        loadingOverlay.style.display = 'none';
+        isloading.style.display = 'block';
+      }, 1000); // The timeout should match the transition duration
+    });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+      const countdownElement = document.getElementById('countdown');
+  
+      // Set the date we're counting down to
+      const countDownDate = new Date("August 5, 2025 00:00:00").getTime();
+  
+      // Create the Register button
+      const registerButton = document.createElement('button');
+      registerButton.innerText = 'Register';
+      registerButton.style.display = 'none'; // Initially hidden
+      registerButton.onclick = () => {
+          window.location.href = 'https://upix465.com'; // Replace with your site URL
+      };
+      countdownElement.parentNode.appendChild(registerButton);
+  
+      // Update the count down every 1 second
+      const x = setInterval(() => {
+          // Get today's date and time
+          const now = new Date().getTime();
+          
+          // Find the distance between now and the count down date
+          const distance = countDownDate - now;
+          
+          // Time calculations for days, hours, minutes and seconds
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          // Display the result in the countdown element
+          countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  
+          // If the count down is over, display the Register button
+          if (distance < 0) {
+              clearInterval(x);
+              countdownElement.innerHTML = "EXPIRED";
+              registerButton.style.display = 'block'; // Show the Register button
+          }
+      }, 1000);
+  });
+  </script>
+  <script>
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const joinButton = document.getElementById('joinButton');
+
+    // Set the date we're counting down to
+    const countDownDate = new Date("August 5, 2025 00:00:00").getTime();
+
+    // Update the count down every 1 second
+    const x = setInterval(() => {
+        // Get today's date and time
+        const now = new Date().getTime();
+        
+        // Find the distance between now and the count down date
+        const distance = countDownDate - now;
+        
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // If the count down is over, change the button text
+        if (distance < 0) {
+            clearInterval(x);
+            joinButton.innerText = "Join us";
+            joinButton.onclick = () => {
+                window.location.href = 'signup.html'; // Replace with your site URL
+            };
+        } else {
+            joinButton.innerText = `Coming Soon (${days}d ${hours}h ${minutes}m ${seconds}s)`;
+            joinButton.onclick = () => {
+                alert("Coming Soon! The feature will be available on August 5, 2025.");
+            };
+        }
+    }, 1000);
+});
+
+
+  </script>
+  
+  <script src="response.js"></script>
+  </html>

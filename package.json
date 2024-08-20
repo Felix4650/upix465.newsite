@@ -1,0 +1,21 @@
+{
+    "name": "chat-app1",
+    "version": "1.0.0",
+    "description": "Chat application with admin and chat functionality",
+    "main": "combined-server.js",
+    "scripts": {
+        "start": "node combined-server.js"
+    },
+    "dependencies": {
+        "cookie-parser": "^1.4.6",
+        "express": "^4.19.2",
+        "express-session": "^1.18.0",
+        "firebase-admin": "^12.3.1",
+        "http": "^0.0.1-security",
+        "multer": "^1.4.5-lts.1",
+        "socket.io": "^4.7.5",
+        "uuid": "^8.3.2"
+    },
+    "author": "felix mogendi",
+    "license": "MIT"
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upix 465 - About us</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Styles */
+body {
+    background-color: #202424;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+    background-color: #202424;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Header Content Layout */
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.4em;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Back Button Styles */
+.back-button {
+    padding: 10px 20px;
+    background-color: white;
+    color: #202424;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: auto;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0;
+    color: #202424;
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.about img:hover {
+    transform: rotate(10deg);
+}
+
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #87CEEB; /* Light blue color */
+    position: relative;
+    text-align: center;
+}
+
+.underline {
+    width: 50%;
+    height: 3px;
+    background-color: #87CEEB;
+    margin: 10px auto 20px auto;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #202424;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+}
+
+/* Add rotation effect for other elements (like text) */
+.about-text h2:hover,
+.about-text p:hover,
+.about-text ul:hover {
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+    header h1 {
+        font-size: 2.8em;
+    }
+
+    .about-text h2 {
+        font-size: 2.4em;
+    }
+
+    .about-text p,
+    .about-text ul {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .about {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .about img {
+        margin-right: 20px;
+        max-width: 50%;
+    }
+
+    .about-text {
+        max-width: 60%;
+        margin-left: 20px;
+    }
+
+    header h1 {
+        font-size: 3.2em;
+    }
+
+    .about-text h2 {
+        font-size: 2.6em;
+    }
+
+    .about-text p,
+    .about-text ul {
+        font-size: 1.4em;
+    }
+}
+.container-chat{
+    position: relative;
+    width: 100%;
+}
+.chat-baatn{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+  }
+  .chat-baatn img{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    color: #fff;
+    top: 0;
+    right: 0;
+    padding: 6px;
+    transition: 0.4s ease-in-out;
+  }
+  .chat-baatn:hover img{
+    transition: rotate(30deg);
+  }
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #202424; /* White background with slight transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Make sure it's on top */
+    transition: opacity 1s ease-out; /* Transition for the fade-out effect */
+  }
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    background-image: url('img/loading.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Hide the content initially */
+  .is-loading {
+    display: none;
+  }
+  .fade-out {
+    opacity: 0; /* Make the overlay transparent */
+  }
+</style>
+<body>
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+    <div class="is-loading">
+    <header>
+        <div class="header-content">
+            <a href="/chat/landscape.html" class="back-button">← Back</a>
+            <h1>About Upix 465</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="about">
+            <img src="img/5.jpg" alt="Upix 465 Social Networking">
+            <div class="about-text">
+                <h2>What is Upix 465?</h2>
+                <p>Upix 465 is a cutting-edge social networking platform designed to connect people, share ideas, and build communities. Our platform is all about bringing people together in a space where creativity and collaboration thrive.</p>
+                <h2>Our Vision</h2>
+                <p>At Upix 465, we envision a world where everyone has the opportunity to express themselves freely and connect with others who share similar interests. We aim to empower our users with the tools they need to create, share, and engage with content that matters to them.</p>
+                <h2>Features of Upix 465</h2>
+                <ul>
+                    <li>Seamless photo </li>
+                    <li>Real-time messaging and group chats</li>
+                    <li>Customizable profiles</li>
+                    <li>Advanced privacy controls and content filters</li>
+                    <li>Community-driven content discovery</li>
+                </ul>
+                <p>Join Upix 465 today and become part of a vibrant and growing community where your voice matters!</p>
+            </div>
+            <div class="container-chat">
+                <div class="chat-baatn" >
+                  <a href="/chat/index.html">
+                   <img  src="img/send.png">
+                  </a>
+                </div>
+              </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Upix 465. All rights reserved.</p>
+    </footer>
+    </div>
+  <script> 
+    window.addEventListener('load', () => {
+        const loadingOverlay = document.querySelector('.loading-overlay');
+        const isloading = document.querySelector('.is-loading');
+  
+        // Add the fade-out class to start the transition
+        loadingOverlay.classList.add('fade-out');
+  
+        // Wait for the transition to end (1s as defined in the CSS) before hiding the overlay and showing content
+        setTimeout(() => {
+          loadingOverlay.style.display = 'none';
+          isloading.style.display = 'block';
+        }, 1000); // The timeout should match the transition duration
+      });
+    </script>
+    <script src="response.js"></script>
+</body>
+</html>

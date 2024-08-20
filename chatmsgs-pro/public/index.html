@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>upix 465 - Real_time Chat</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+  <div class="is-loading">
+  <span class="spn"><a href="/chat/about.html">Back</a></span>
+  <div class="user-reg">
+
+    <div class="register">
+      <h3>welcome!</h3>
+      <input type="text" placeholder="username" id="username">
+      <button type="submit" class="batton" id="login-btn">
+        <img src="img/send.png">
+      </button>
+    </div>
+  </div>
+  <div class="chat-container" style="display: none;">
+    <div class="owner">
+      <img src="img/logo.png">
+      <div class="owner-info">
+        <h4>upix 465</h4>
+        <p>offline</p>
+      </div>
+    </div>
+    <div class="messages" id="messages">
+      
+      <div class="update">
+        <p style="text-align: center;"></p>
+      </div>
+      
+    </div>
+    <!--input field section-->
+    <div class="typebox" id="typebox" >
+      <input type="text" placeholder="Enter message" id="message-input">
+      <button class="send-batn" id="send-message">
+        <img src="img/send.png">
+      </button>
+    </div>
+  </div>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+        const loadingOverlay = document.querySelector('.loading-overlay');
+        const isloading= document.querySelector('.is-loading');
+  
+        // Add the fade-out class to start the transition
+        loadingOverlay.classList.add('fade-out');
+  
+        // Wait for the transition to end (1s as defined in the CSS) before hiding the overlay and showing content
+        setTimeout(() => {
+          loadingOverlay.style.display = 'none';
+          isloading.style.display = 'block';
+        }, 1000); // The timeout should match the transition duration
+      });
+  </script>
+  
+  <script>
+    
+    document.querySelector('a').addEventListener('click', function(event) {
+    // Any code you want to run before navigation
+    console.log('Link clicked');
+
+    // Allow the default link behavior to occur
+});
+
+  </script>
+ 
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

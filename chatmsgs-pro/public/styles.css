@@ -1,0 +1,230 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #202024;
+    color: #fff;
+  }
+  
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+  
+  .messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    
+  }
+  
+  .my-message {
+    display: inline-bloc;
+    max-width: 60%;
+    word-wrap: break-word;
+    background-color: 2d123d;
+    padding: 7px 10px;
+    border-radius: 10px 10px 10px 0;
+    margin: 10px 0;
+    
+  }
+  
+  .nae{
+    position: absolute;
+    padding: 2px;
+  }
+  .text {
+    display: inline-block;
+    background-color: #2d123d;
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+    max-width: 60%;
+    
+  }
+  
+  .typebox {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #202024;
+  }
+  
+  #message-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+
+  
+  .send-batn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .send-batn img {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .owner{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 80px;
+    background-color: #0f0f0f;
+    padding: 15px;
+    
+  }
+  .owner img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+  }
+  .owner-info{
+    color: #fff;
+    padding: 5px;
+    height: 76px;
+  
+  }
+  .owner-info p{
+    color: #2ef5c3;
+    font-weight: bold;
+    font-size: 0.8em;
+
+  }
+  .messages{
+    flex: 1;
+    display: fle;
+    padding: 10px;
+    color: #fff;
+    position: relative;
+    font-size: 0.9em;
+    height: 380px;
+    overflow-y: scroll;
+    
+   
+  }
+  .messages::-webkit-scrollbar{
+    width: 7px;
+  }
+  .messages::-webkit-scrollbar-track{
+    background: #eeebeb;
+    border-radius: px;
+  }
+  .messages::-webkit-scrollbar-thumb{
+    background: #242424;
+    border-radius: 50px;
+  }
+.user-reg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.register h3{
+  font-size: 20px;
+  font-family:  monospace;
+  font-style: italic;
+  color: #6110f8;
+}
+.register input{
+  padding: 12px;
+  width: 200px;
+  background-color: transparent;
+  color: white;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  
+}
+.register button{
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #0e0d0d;
+  border: none;
+}
+.register button img{
+  width: 20px;
+  height: 20px;
+}
+.register button:hover{
+  background-color: #1d1d1d;
+}
+.spn a{
+  padding: 3px;
+  color: white;
+  outline: none;
+  text-decoration: none;
+}
+
+.my-message .text::after {
+  content: attr(data-sender);
+  display: none;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.my-message:hover .text::after {
+  display: block;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #202424; /* White background with slight transparency */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Make sure it's on top */
+  transition: opacity 1s ease-out; /* Transition for the fade-out effect */
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  background-image: url('img/loading.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide the content initially */
+.is-loading {
+  display: none;
+}
+.fade-out {
+  opacity: 0; /* Make the overlay transparent */
+}
